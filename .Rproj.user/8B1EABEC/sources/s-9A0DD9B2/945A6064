@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1566762135250.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3102222990",
+    "id" : "945A6064",
+    "lastKnownWriteTime" : 1566763468,
+    "last_content_update" : 1566763468557,
+    "path" : "~/Seafile/documents_colin/R/opensource/orderdiv/R/mod_reorder_module.R",
+    "project_path" : "R/mod_reorder_module.R",
+    "properties" : {
+        "cursorPosition" : "61,0",
+        "scrollLine" : "30"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
