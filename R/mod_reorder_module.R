@@ -18,31 +18,10 @@ mod_reorder_module_ui <- function(id){
   tagList(
     tags$div(
       tags$ul(
-        id = ns("parent_div"),
-        li_with_id( "a" ),
-        li_with_id( "b" ),
-        li_with_id( "c" )
+        id = ns("parent_div")
       )
     ),
-    # Make the div sortable
-    tags$script(
-      sprintf("$('#%s').sortable();",  ns("parent_div"))
-    ),
-    # Send the div order to Shiny
-    tags$script(
-      sprintf("$('#%s').sortable().bind('sortupdate', function(e, ui) {
-                var e = $('#%s');
-                var res = []
-                e.children().each(function(){
-                  res.push($(this).attr('id'));
-                })
-                Shiny.setInputValue('%s', res)
-              });",  
-              ns("parent_div"),
-              ns("parent_div"), 
-              ns("parent_div_id")
-              )
-    )
+    actionButton(ns("add_div"), "add div")
   )
 }
     
@@ -54,9 +33,23 @@ mod_reorder_module_ui <- function(id){
     
 mod_reorder_module_server <- function(input, output, session){
   ns <- session$ns
+  
   observeEvent( input$parent_div_id , {
     print(input$parent_div_id)
   })
+  
+  r <- reactiveValues(n = 1)
+  
+  observeEvent( input$add_div , {
+    insertUI(
+      immediate = TRUE,
+      selector = sprintf("#%s", ns("parent_div")), 
+      ui = div_with_id( letters[r$n], tags$ul(tags$li(letters[r$n]))) 
+      )
+    r$n <- r$n + 1
+    golem::invoke_js("resortable", ns("parent_div"))
+  })
+  
   
 }
 

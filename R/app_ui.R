@@ -24,6 +24,8 @@ golem_add_external_resources <- function(){
     # Add here all the external resources
     # If you have a custom.css in the inst/app/www
     # Or for example, you can add shinyalert::useShinyalert() here
-    tags$script(src = "www/html5sortable/jquery.sortable.min.js")
+    tags$script(src = "www/html5sortable/jquery.sortable.min.js"), 
+    tags$script(src="www/sortable.js"),
+    tags$link(rel="stylesheet", type="text/css", href="www/custom.css")
   )
 }

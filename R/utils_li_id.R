@@ -1,6 +1,7 @@
-li_with_id <- function(content){
-  tags$li(
-    id = sprintf("li-%s",content), 
+div_with_id <- function(id, content){
+  tags$div(
+    id = sprintf("div-%s",id), 
+    class = "grey-ul",
     content
   )
 }
