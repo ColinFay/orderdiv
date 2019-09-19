@@ -16,7 +16,6 @@ test_that("app server", {
 test_that(
   "app launches",{
     skip_on_cran()
-    skip_on_appveyor()
     x <- processx::process$new(
       wd = rprojroot::find_package_root_file(),
       "R", 
